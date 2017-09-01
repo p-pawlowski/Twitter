@@ -15,7 +15,7 @@
 			<tr>
 				<td th:text="${tweet.text}"></td>
 				<td>
-					<a th:href="@{'tweet/delete/' + ${tweet.id}}">delete</a>
+					<a th:href="@{'/tweet/delete/' + ${tweet.id}}">delete</a>
 				</td>
 			</tr>
 

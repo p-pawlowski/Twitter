@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -54,6 +55,14 @@ public class TweetController {
 		List<Tweet> tweetList = tweetRepository.findAll();
 		model.addAttribute("tweetList", tweetList);
 		return "TweetList";
+		
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteTweet(@PathVariable Long id){
+		Tweet tweet = tweetRepository.findOne(id);
+		tweetRepository.delete(tweet);
+		return "redirect:../list";
 		
 	}
 	
