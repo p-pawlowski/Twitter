@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<h1>Add Tweet</h1>
+
+
+	<form action="#" th:action="@{/tweet/add}" th:object="${tweet}"
+		method="post">
+		<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+			<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+		</div>
+		<p>
+			Message: <input type="text" th:field="*{text}" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
+
+</body>
+</html>

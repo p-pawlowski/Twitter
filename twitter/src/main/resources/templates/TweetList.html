@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p>
+		<a href="/tweet/add">Add Tweet</a>
+	</p>
+
+	<table>
+		<th:block th:each="tweet : ${tweetList}">
+			<tr>
+				<td th:text="${tweet.text}"></td>
+				<td>
+					<a th:href="@{'tweet/delete/' + ${tweet.id}}">delete</a>
+				</td>
+			</tr>
+
+		</th:block>
+	</table>
+</body>
+</html>
