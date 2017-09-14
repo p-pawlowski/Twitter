@@ -6,10 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tweets")
@@ -23,7 +20,7 @@ public class Tweet {
 	private String text;
 	
 	@ManyToOne
-	private User user;
+	private TweetUser tweetUser;
 
 	public Long getId() {
 		return id;
@@ -41,12 +38,12 @@ public class Tweet {
 		this.text = text;
 	}
 
-	public User getUser() {
-		return user;
+	public TweetUser getUser() {
+		return tweetUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(TweetUser tweetUser) {
+		this.tweetUser = tweetUser;
 	}
 
 
