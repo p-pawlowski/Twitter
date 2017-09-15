@@ -13,7 +13,6 @@
 	<table>
 		<th:block th:each="tweet : ${tweetList}">
 			<tr>
-				<td th:text="${tweet.user.email}"></td>
 				<td th:text="${tweet.text}"></td>
 				<td>
 					<a th:href="@{'/tweet/delete/' + ${tweet.id}}">delete</a>

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,17 +17,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pawlowski.piotr.twitter.entity.Tweet;
+import pawlowski.piotr.twitter.entity.User;
 import pawlowski.piotr.twitter.repository.TweetRepository;
+import pawlowski.piotr.twitter.service.UserService;
 
 @RequestMapping("/tweet")
 @Controller
 public class TweetController {
 
-	TweetRepository tweetRepository;
+	private TweetRepository tweetRepository;
+	private UserService userService;
 	
 	@Autowired
-	public TweetController (TweetRepository tweetRepository){
+	public TweetController (TweetRepository tweetRepository, UserService userService){
 		this.tweetRepository = tweetRepository;
+		this.userService = userService;;
 	}
 	
 	@RequestMapping("/MainPage")
@@ -45,6 +51,9 @@ public class TweetController {
 		if	(result.hasErrors())	{
 			return	"AddTweet";
 		}
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		tweet.setUser(user);
 		tweetRepository.save(tweet);
 		return "redirect:list";
 		
