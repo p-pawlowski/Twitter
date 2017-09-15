@@ -20,7 +20,7 @@ public class Tweet {
 	private String text;
 	
 	@ManyToOne
-	private TweetUser tweetUser;
+	private User user;
 
 	public Long getId() {
 		return id;
@@ -38,13 +38,15 @@ public class Tweet {
 		this.text = text;
 	}
 
-	public TweetUser getUser() {
-		return tweetUser;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser(TweetUser tweetUser) {
-		this.tweetUser = tweetUser;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+
 
 
 }

@@ -69,6 +69,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 				.expressionHandler(webExpressionHandler()) // used with role hierarchy
 				.antMatchers("/").permitAll()
 				.antMatchers("/registration").permitAll()
+				.antMatchers("/tweet/**").hasAuthority("USER")
 				.antMatchers("/admin/**").hasAuthority("ADMIN")
 				.anyRequest().authenticated()
 				.and()
