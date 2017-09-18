@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"></meta>
-<title>Insert title here</title>
+<title>Main Page</title>
 </head>
 <body>
-		<form th:action="@{/logout}" method="get">
-			<button class="btn btn-md btn-danger btn-block" name="registration"
-				type="Submit">Logout</button>
-		</form>   
+<h1>Strona Główna</h1>
+
+	<p>
+		<a href="/login">Login</a> <a href="/register">Register</a> <a href="/user/panel">User Panel</a>
+	</p>
+
 	<p>
 		<a href="/tweet/add">Add Tweet</a>
 	</p>
@@ -16,6 +18,7 @@
 	<table>
 		<th:block th:each="tweet : ${tweetList}">
 			<tr>
+				<td th:text="${tweet.user.email}"></td>
 				<td th:text="${tweet.text}"></td>
 				<td>
 					<a th:href="@{'/tweet/delete/' + ${tweet.id}}">delete</a>

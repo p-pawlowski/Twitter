@@ -10,4 +10,5 @@ import pawlowski.piotr.twitter.entity.User;
 @Repository
 public interface TweetRepository extends JpaRepository<Tweet, Long>{
 	List<Tweet> findByUser(User user);
+	List<Tweet> findFirst10ByOrderByIdAsc();
 }
