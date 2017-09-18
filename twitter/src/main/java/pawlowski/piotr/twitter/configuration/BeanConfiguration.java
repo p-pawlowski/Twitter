@@ -11,7 +11,7 @@ public class BeanConfiguration {
 	@Bean
 	public RoleHierarchy roleHierarchy(){		
 		RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-		roleHierarchy.setHierarchy("GOD > ADMIN ADMIN > USER");
+		roleHierarchy.setHierarchy("ADMIN > MODERATOR MODERATOR > USER");
 		return roleHierarchy; 
 	}
 	

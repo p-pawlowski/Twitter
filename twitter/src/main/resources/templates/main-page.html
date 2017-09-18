@@ -5,24 +5,26 @@
 <title>Main Page</title>
 </head>
 <body>
-<h1>Strona Główna</h1>
+	<h1>Strona Główna</h1>
 
 	<p>
-		<a href="/login">Login</a> <a href="/register">Register</a> <a href="/user/panel">User Panel</a>
-	</p>
-
+		<a href="/login">Login</a> <a href="/registration">Registration</a>
 	<p>
-		<a href="/tweet/add">Add Tweet</a>
-	</p>
+		<a href="/user/panel">User Panel</a> <a href="/admin/home">Admin
+			Panel </a> <a href="/moderator/panel">Moderator panel</a>
+	<p></p>
 
 	<table>
+		<th:block>
+			<tr>
+				<td th:text="user"></td>
+				<td th:text="tweet"></td>
+			</tr>
+		</th:block>
 		<th:block th:each="tweet : ${tweetList}">
 			<tr>
 				<td th:text="${tweet.user.email}"></td>
 				<td th:text="${tweet.text}"></td>
-				<td>
-					<a th:href="@{'/tweet/delete/' + ${tweet.id}}">delete</a>
-				</td>
 			</tr>
 
 		</th:block>
