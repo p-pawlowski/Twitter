@@ -5,18 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>User Panel</h1>
+	<p th:text="${'zalogowano jako: ' + user.name + ' ' + user.lastName}"></p>
+	<p th:text="${'email: ' + user.email}"></p>
+
+
 	<form th:action="@{/logout}" method="get">
 		<button class="btn btn-md btn-danger btn-block" name="registration"
 			type="Submit">Logout</button>
 	</form>
-	
-		<p>
-		<a href="/login">Login</a> <a href="/registration">Registration</a>
-	<p>
-		<a href="/user/panel">User Panel</a> <a href="/admin/home">Admin
-			Panel </a> <a href="/moderator/panel">Moderator panel</a>
 	<p></p>
-	
+	<a href="/">Main Page</a>
+	<a href="/user/panel">User Panel</a>
+	<p></p>
 	<p>
 		<a href="/tweet/add">Add Tweet</a>
 	</p>
@@ -27,7 +28,7 @@
 			<tr>
 				<td th:text="tweet"></td>
 				<td th:text="action"></td>
-				
+
 			</tr>
 		</th:block>
 		<th:block th:each="tweet : ${tweetList}">
