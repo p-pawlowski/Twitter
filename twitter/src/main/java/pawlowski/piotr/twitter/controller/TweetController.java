@@ -1,7 +1,5 @@
 package pawlowski.piotr.twitter.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ import pawlowski.piotr.twitter.entity.User;
 import pawlowski.piotr.twitter.repository.TweetRepository;
 import pawlowski.piotr.twitter.service.UserService;
 
-@RequestMapping("tweet")
+@RequestMapping("/tweet")
 @Controller
 public class TweetController {
 
