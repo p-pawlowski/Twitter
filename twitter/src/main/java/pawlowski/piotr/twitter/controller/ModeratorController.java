@@ -27,7 +27,7 @@ public class ModeratorController {
 	public String showModeratorPanel(Model model){
 		List<Tweet> tweetList = tweetRepository.findFirst10ByOrderByIdAsc();
 		model.addAttribute("tweetList", tweetList);
-		return "/moderator/panel";
+		return "/moderator/moderator-panel";
 	}
 	
 	@RequestMapping("/delete/{id}")
