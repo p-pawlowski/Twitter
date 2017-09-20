@@ -9,5 +9,5 @@ import pawlowski.piotr.twitter.entity.User;
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User,Long> {
 	User findByEmail(String email);
-
+	User findById(int id);
 }
