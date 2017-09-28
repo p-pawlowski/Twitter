@@ -27,7 +27,7 @@ public class DefaultController {
 	}
 	
 	@RequestMapping(value="/access-denied")
-	public String accessDenied(Model model){
+	public String accessDenied(){
 		return "access-denied";
 	}
 	
